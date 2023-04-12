@@ -10,6 +10,7 @@ import kotlinx.coroutines.*
 import net.bbo51dog.seiyuread.audio.player.GuildAudioPlayer
 import net.bbo51dog.seiyuread.audio.player.TrackData
 import net.bbo51dog.seiyuread.audio.tts.TtsClient
+import net.bbo51dog.seiyuread.message.MessageFormatter
 import net.dv8tion.jda.api.entities.Guild
 import net.dv8tion.jda.api.entities.Message
 import kotlin.coroutines.EmptyCoroutineContext
@@ -27,7 +28,7 @@ class AudioService {
         val scope = CoroutineScope(EmptyCoroutineContext)
         scope.launch(Dispatchers.Default) {
             val deffer = async(Dispatchers.IO) {
-                TtsClient.saveVoiceToCache(message.contentStripped)
+                TtsClient.saveVoiceToCache(MessageFormatter.format(message))
             }
             val trackData = TrackData(message.guild, deffer.await())
             loadAndPlay(trackData)
