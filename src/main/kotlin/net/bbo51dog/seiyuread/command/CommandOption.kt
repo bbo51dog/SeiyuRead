@@ -8,7 +8,7 @@ class CommandOption(
     val name: String,
     val description: String,
     val isRequired: Boolean = false,
-    val isAutoComplete: Boolean,
+    val isAutoComplete: Boolean = false,
 ) {
 
     enum class Type(
