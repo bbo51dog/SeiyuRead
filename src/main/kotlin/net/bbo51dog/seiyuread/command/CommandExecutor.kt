@@ -14,10 +14,8 @@ class CommandExecutor {
             this.commands[it.name] = it
             commandDataList.add(it.commandData)
         }
-        jda.guilds.forEach {
-            it.updateCommands().queue()
-            it.updateCommands().addCommands(commandDataList).queue()
-        }
+        jda.updateCommands().queue()
+        jda.updateCommands().addCommands(commandDataList).queue()
     }
 
     fun handleCommand(event: SlashCommandInteractionEvent) {
