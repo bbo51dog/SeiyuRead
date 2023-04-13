@@ -2,6 +2,7 @@ package net.bbo51dog.seiyuread
 
 import net.bbo51dog.seiyuread.audio.AudioService
 import net.bbo51dog.seiyuread.command.CommandExecutor
+import net.bbo51dog.seiyuread.command.HelpCommand
 import net.bbo51dog.seiyuread.command.JoinCommand
 import net.bbo51dog.seiyuread.listener.CommandListener
 import net.bbo51dog.seiyuread.listener.CommonListener
@@ -49,6 +50,7 @@ class BotClient {
         commandExecutor.registerCommands(
             jda,
             JoinCommand(),
+            HelpCommand(commandExecutor),
         )
     }
 }

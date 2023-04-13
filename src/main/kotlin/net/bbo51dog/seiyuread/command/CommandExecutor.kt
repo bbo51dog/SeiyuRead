@@ -8,6 +8,9 @@ class CommandExecutor {
 
     private val commands = mutableMapOf<String, Command>()
 
+    val commandMap: Map<String, Command>
+        get() = commands
+
     fun registerCommands(jda: JDA, vararg commands: Command) {
         val commandDataList = mutableListOf<CommandData>()
         commands.forEach {
